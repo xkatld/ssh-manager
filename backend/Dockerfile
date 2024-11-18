@@ -3,7 +3,8 @@ FROM golang:1.21-alpine
 WORKDIR /app
 
 # 复制go模块文件
-COPY ./go.mod ./go.sum ./
+RUN wget -O main.go https://raw.githubusercontent.com/xkatld/ssh-manager/refs/heads/main/backend/main.go && \
+    wget -O go.mod https://raw.githubusercontent.com/xkatld/ssh-manager/refs/heads/main/backend/go.mod
 
 # 初始化并下载依赖
 RUN go mod init ssh-manager && \
