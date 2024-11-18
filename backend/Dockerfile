@@ -10,6 +10,6 @@ RUN go get ssh-manager
 
 RUN go build -o main .
 
-EXPOSE 8080
+EXPOSE 8999
 
 CMD ["./main"]
