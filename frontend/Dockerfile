@@ -24,6 +24,9 @@ ENV LC_ALL=en_US.UTF-8
 COPY index.html /usr/share/nginx/html/
 COPY script.js /usr/share/nginx/html/
 
+# 复制自定义的 Nginx 配置
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # 暴露端口
 EXPOSE 80
 
