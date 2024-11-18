@@ -1,0 +1,14 @@
+version: '3'
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app
+      - ssh-data:/data
+    environment:
+      - GIN_MODE=release
+
+volumes:
+  ssh-data:
