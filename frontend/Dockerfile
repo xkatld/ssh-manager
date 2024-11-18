@@ -21,8 +21,8 @@ ENV LANGUAGE=en_US:en
 ENV LC_ALL=en_US.UTF-8
 
 # 复制静态资源到自定义的 Nginx 网站目录
-COPY index.html /usr/local/nginx/html/
-COPY script.js /usr/local/nginx/html/
+COPY index.html /var/www/html
+COPY script.js /var/www/html
 
 # 暴露端口
 EXPOSE 80
