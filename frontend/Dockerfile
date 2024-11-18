@@ -20,12 +20,9 @@ ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US:en
 ENV LC_ALL=en_US.UTF-8
 
-# 复制静态资源
-COPY index.html /usr/share/nginx/html/
-COPY script.js /usr/share/nginx/html/
-
-# 复制自定义的 Nginx 配置
-COPY nginx.conf /etc/nginx/nginx.conf
+# 复制静态资源到自定义的 Nginx 网站目录
+COPY index.html /usr/local/nginx/html/
+COPY script.js /usr/local/nginx/html/
 
 # 暴露端口
 EXPOSE 80
