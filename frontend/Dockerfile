@@ -21,6 +21,8 @@ ENV LANGUAGE=en_US:en
 ENV LC_ALL=en_US.UTF-8
 
 # 复制静态资源到自定义的 Nginx 网站目录
+RUN rm -rf /var/www/html/index.nginx-debian.html
+
 COPY index.html /var/www/html
 COPY script.js /var/www/html
 
