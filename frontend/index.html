@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSH管理器</title>
+</head>
+<body>
+    <h1>SSH连接管理</h1>
+    <form id="sshForm">
+        <input type="text" id="name" placeholder="连接名称" required>
+        <input type="text" id="host" placeholder="主机地址" required>
+        <input type="number" id="port" placeholder="端口" required>
+        <input type="text" id="username" placeholder="用户名" required>
+        <input type="password" id="password" placeholder="密码" required>
+        <input type="text" id="category" placeholder="分类">
+        <button type="submit">添加SSH连接</button>
+    </form>
+    <div id="sshList"></div>
+    <script src="script.js"></script>
+</body>
+</html>
