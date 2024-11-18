@@ -7,9 +7,7 @@ RUN wget -O main.go https://raw.githubusercontent.com/xkatld/ssh-manager/refs/he
     wget -O go.mod https://raw.githubusercontent.com/xkatld/ssh-manager/refs/heads/main/backend/go.mod
 
 # 初始化并下载依赖
-RUN go mod init ssh-manager && \
-    go mod tidy && \
-    go mod download
+RUN go mod download
 
 # 复制源代码
 COPY . .
