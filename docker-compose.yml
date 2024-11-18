@@ -5,10 +5,14 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./backend:/app
       - ssh-data:/data
-    environment:
-      - GIN_MODE=release
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
 
 volumes:
   ssh-data:
