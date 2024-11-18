@@ -8,6 +8,7 @@ RUN wget -O main.go https://raw.githubusercontent.com/xkatld/ssh-manager/refs/he
 
 # 初始化并下载依赖
 RUN go mod download
+RUN go mod tidy
 
 # 复制源代码
 COPY . .
