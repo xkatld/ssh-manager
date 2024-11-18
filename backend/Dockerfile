@@ -6,6 +6,8 @@ COPY . .
 
 RUN go mod download
 
+RUN go get ssh-manager
+
 RUN go build -o main .
 
 EXPOSE 8080
