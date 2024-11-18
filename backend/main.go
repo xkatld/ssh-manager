@@ -24,7 +24,6 @@ func initDatabase() *sql.DB {
         log.Fatal(err)
     }
 
-    // 创建表
     _, err = db.Exec(`
         CREATE TABLE IF NOT EXISTS ssh_connections (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,8 +47,9 @@ func main() {
     defer db.Close()
 
     r := gin.Default()
+    r.Use(gin.Logger())
+    r.Use(gin.Recovery())
 
-    // 添加SSH连接
     r.POST("/ssh", func(c *gin.Context) {
         var conn SSHConnection
         if err := c.BindJSON(&conn); err != nil {
@@ -71,7 +71,6 @@ func main() {
         c.JSON(200, conn)
     })
 
-    // 获取SSH连接列表
     r.GET("/ssh", func(c *gin.Context) {
         rows, err := db.Query("SELECT id, name, host, port, username, category FROM ssh_connections")
         if err != nil {
