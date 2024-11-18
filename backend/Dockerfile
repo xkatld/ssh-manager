@@ -2,12 +2,19 @@ FROM golang:1.21-alpine
 
 WORKDIR /app
 
+# 复制go模块文件
 COPY go.mod go.sum ./
-RUN go mod download
 
-COPY src/ ./src/
+# 初始化并下载依赖
+RUN go mod init ssh-manager && \
+    go mod tidy && \
+    go mod download
 
-RUN go build -o main ./src/main.go
+# 复制源代码
+COPY . .
+
+# 构建应用
+RUN go build -o main .
 
 EXPOSE 8080
 
