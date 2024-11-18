@@ -3,14 +3,14 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8080:8080"
+      - "8999:8999"
     volumes:
       - ssh-data:/data
 
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "8998:80"
     depends_on:
       - backend
 
